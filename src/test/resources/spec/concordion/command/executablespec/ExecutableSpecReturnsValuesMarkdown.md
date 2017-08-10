@@ -22,3 +22,13 @@ System.err.println("ERR 1");
 System.out.println("OUT 2");
 System.err.println("ERR 2");
 </code></pre>
+
+## [Scripts with native format can return values](-)
+
+    ```groovy result:#returnValue
+    
+    return 7*7
+    
+    ```
+
+This script returns [49]( - "?=#returnValue")!

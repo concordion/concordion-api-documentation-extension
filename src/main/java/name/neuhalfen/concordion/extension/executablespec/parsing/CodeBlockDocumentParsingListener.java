@@ -33,8 +33,14 @@ public class CodeBlockDocumentParsingListener implements DocumentParsingListener
                 return;
             }
 
-            ParentNode parent = node.getParent();
+            // evil, yes.
+            Element parent = (Element) node.getParent();
             int insertIndex = parent.indexOf(node);
+
+            while ("pre".equalsIgnoreCase(parent.getLocalName()) || "code".equalsIgnoreCase(parent.getLocalName())) {
+                node = parent;
+                parent = (Element) parent.getParent();
+            }
             parent.removeChild(node);
 
             while (codeBlock.matches()) {
