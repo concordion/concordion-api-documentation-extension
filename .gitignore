@@ -13,3 +13,4 @@ bin/
 *.iml
 out/
 .DS_Store
+gradle.properties

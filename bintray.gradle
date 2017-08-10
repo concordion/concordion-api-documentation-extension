@@ -1,0 +1,101 @@
+def pomConfig = {
+
+    scm {
+        connection 'scm:git:https://github.com/neuhalje/concordion-executable-documentation-extension.git'
+        developerConnection 'scm:git:git@github.com:neuhalje/concordion-executable-documentation-extension.git'
+        url 'https://github.com/neuhalje/concordion-executable-documentation-extension'
+    }
+
+    licenses {
+        license {
+            name 'Apache-2.0'
+        }
+    }
+
+    developers {
+        developer {
+            id 'neuhalje'
+            name 'Jens Neuhalfen'
+            email 'neuhalje@neuhalfen.name'
+        }
+    }
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
+
+// signing {
+//    required { isReleaseVersion && gradle.taskGraph.hasTask("bintrayUpload") }
+//    sign configurations.archives
+// }
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            groupId group
+            artifactId 'ExecutableSpecExtension'
+            version  property('version')
+
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'Executable Documentation with Concordion')
+                root.appendNode('name', 'ExecutableSpecExtension')
+                root.appendNode('url', 'https://github.com/neuhalje/concordion-executable-documentation-extension')
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}
+
+bintray {
+    user = property('bintray_Username')
+    key =  property('bintray_Password')
+
+    dryRun = false //property('bintray_dryRun')//[Default: false] Whether to run this as dry-run, without deploying
+    publish = true //[Default: false] Whether version should be auto published after an upload
+    override = false //[Default: false] Whether to override version artifacts already published
+
+    pkg {
+        repo = 'maven'
+        name = 'concordion-executable-documentation-extension'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/neuhalje/concordion-executable-documentation-extension.git'
+        websiteUrl = 'https://github.com/neuhalje/concordion-executable-documentation-extension'
+        labels = ['concordion', 'executable', 'specification', 'example-code', 'groovy' ]
+
+        githubRepo = 'neuhalje/concordion-executable-documentation-extension'
+        githubReleaseNotesFile = 'README.md'
+
+        version {
+            name = property('version')
+            desc = 'Executable Documentation with Concordion'
+            released = new Date()
+            vcsTag =  property('version')
+
+            gpg {
+                sign = false
+            }
+            mavenCentralSync {
+                sync = false 
+            }    
+        }
+    }
+
+    publications = ['maven']
+}

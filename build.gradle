@@ -1,17 +1,32 @@
 plugins {
     id 'org.ajoberstar.git-publish' version '0.3.0'
+
+    // deploy to maven central
+    id 'maven'
+    id 'maven-publish'
+    id 'signing'
+    id "com.jfrog.bintray" version "1.7"
 }
 apply plugin: "groovy"
 apply plugin: "jacoco"
 
 description = 'Executable demo code in concordion'
+group = 'name.neuhalfen.concordion.extension'
+version = '0.0.1'
+
+// bintray deployment
+// configured in gradle.properties
+
+if (hasProperty('bintray_Username')) {
+    apply from: 'bintray.gradle'
+}
 
 wrapper {
     gradleVersion = "4.1"
 }
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 project.ext {
