@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:concordion="http://www.concordion.org/2007/concordion" xmlns:script="http://neuhalfen.name/concordion/extensions/run"><head><style>* {
+  font-family: Arial;
+}
+body {
+  padding: 32px;  
+}
+pre {
+  padding: 6px 28px 6px 28px;
+  background-color: #E8EEF7;
+}
+pre, pre *, code, code *, kbd {
+  font-family: Courier New, Courier;
+  font-size: 10pt;
+}
+h1, h1 * {
+  font-size: 24pt;	
+}
+p, td, th, li, .breadcrumbs {
+  font-size: 10pt;
+}
+p, li {
+  line-height: 140%;
+  max-width: 720px;
+}
+table {
+  border-collapse: collapse;
+  empty-cells: show;
+  margin: 8px 0px 8px 0px;
+}
+th, td {
+  border: 1px solid black;
+  padding: 3px;
+}
+td {
+  background-color: white;
+  vertical-align: top;
+}
+th {
+  background-color: #C3D9FF;
+}
+li {
+  margin-top: 6px;
+  margin-bottom: 6px; 
+}
+
+.example, :not(th)[concordion\:example] {
+  padding: 6px 16px 6px 16px;
+  border: 1px solid #C3D9FF;
+  margin: 6px 0px 28px 0px;
+  background-color: #F5F9FD;
+}
+.example h3, [concordion\:example] h3 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 12pt;
+}
+
+p.success {
+  padding: 2px;
+}
+.success, .success * {
+  background-color: #afa !important;
+}
+.success pre {
+  background-color: #bbffbb;
+}
+.failure, .failure * {
+  background-color: #ffb0b0;
+  padding: 1px;
+}
+.failure .expected {
+  text-decoration: line-through;
+  color: #bb5050;
+}
+.ignored, .ignored * {
+  background-color: #f0f0f0 !important;	
+}
+
+ins {
+  text-decoration: none;	
+}
+
+.exceptionMessage {
+  background-color: #fdd;
+  font-family: Courier New, Courier, Monospace;
+  font-size: 10pt;
+  display: block;
+  font-weight: normal;
+  padding: 4px;
+  text-decoration: none !important;
+}
+.stackTrace, .stackTrace * {
+  font-weight: normal;
+}
+.stackTrace {
+  display: none;
+  padding: 1px 4px 4px 4px;
+  background-color: #fdd;
+  border-top: 1px dotted black;
+}
+.stackTraceExceptionMessage {
+  display: block;
+  font-family: Courier New, Courier, Monospace;
+  font-size: 8pt;
+  white-space: wrap;
+  padding: 1px 0px 1px 0px;
+}
+.stackTraceEntry {
+  white-space: nowrap;
+  font-family: Courier New, Courier, Monospace;
+  display: block;
+  font-size: 8pt;
+  padding: 1px 0px 1px 32px;
+}
+.stackTraceButton {
+  font-size: 8pt;
+  margin: 2px 8px 2px 0px;
+  font-weight: normal;
+  font-family: Arial;
+}
+
+.special {
+  font-style: italic;
+}
+.missing, .missing * {
+  background-color: #ff9999;
+  color:#bb5050;
+  text-decoration: line-through;
+}
+.surplus, .surplus * {
+  background-color: #ff9999;
+}
+.footer {
+  text-align: right;
+  margin-top: 40px;
+  font-size: 8pt;
+  width: 100%;
+  color: #999;
+}
+.footer .testTime {
+  padding: 2px 10px 0px 0px;
+}
+
+.idea {
+  font-size: 9pt;
+  color: #888;
+  font-style: italic;	
+}
+.tight li {
+  margin-top: 1px;
+  margin-bottom: 1px; 
+}
+.commentary {
+  float: right;
+  width: 200px;
+  background-color: #ffffd0;
+  padding:8px;
+  border: 3px solid #eeeeb0;	 
+  margin: 10px 0px 10px 10px;	 
+}
+.commentary, .commentary * {
+  font-size: 8pt;
+}
+</style><meta http-equiv="content-type" content="text/html; charset=UTF-8" /><link type="text/css" rel="stylesheet" href="../../../../highlightjs.org/solarized-dark.css" /><script type="text/javascript" src="../../../../highlightjs.org/highlight.pack.js"></script><script type="text/javascript" src="../../../../highlightjs.org/initHighlighting.js"></script></head><body><span class="breadcrumbs"><a href="Executablespec.html">Run groovy scripts</a> &gt;</span><h1>ExecutableSpec Examples</h1>
+<div concordion:example="scripts-can-return-values" id="scripts-can-return-values">
+<h2>Scripts can return values</h2>
+<pre><code script:lang="groovy" script:result="#returnValue" id="groovy">
+
+return 42
+
+<p></p></code></pre>
+<p>This script returns <span concordion:assert-equals="#returnValue" class="success">42</span>!</p></div>
+<div concordion:example="script-do-not-need-to-return-values" id="script-do-not-need-to-return-values">
+<h2>Script do not need to return values</h2>
+<pre>
+<code script:lang="groovy" id="groovy">
+import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
+
+System.out.println("Namespace: " + ExecutableSpecExtension.NAMESPACE);
+System.out.println("OUT 1");
+System.err.println("ERR 1");
+System.out.println("OUT 2");
+System.err.println("ERR 2");
+<p></p></code><code class="shell">Namespace: http://neuhalfen.name/concordion/extensions/run
+OUT 1
+ERR 1
+OUT 2
+ERR 2
+</code></pre></div>
+<div concordion:example="scripts-with-native-format-can-return-values" id="scripts-with-native-format-can-return-values"><pre><code script:lang="groovy" script:result="#returnValue" id="groovy">return 7*7
+<p></p></code></pre>
+
+<h2>Scripts with native format can return values</h2>
+
+<p>This script returns <span concordion:assert-equals="#returnValue" class="success">49</span>!</p></div><div class="footer">Results generated by <a href="http://www.concordion.org" style="font-weight: bold; text-decoration: none; color: #89C;">Concordion</a><div class="testTime">in 96 ms on 10-Aug-2017 at 23:56:40 CEST</div></div></body></html>
