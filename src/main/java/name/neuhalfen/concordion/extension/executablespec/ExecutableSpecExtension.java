@@ -1,6 +1,7 @@
 package name.neuhalfen.concordion.extension.executablespec;
 
 
+import name.neuhalfen.concordion.extension.executablespec.parsing.CodeBlockDocumentParsingListener;
 import org.concordion.api.Resource;
 import org.concordion.api.extension.ConcordionExtender;
 import org.concordion.api.extension.ConcordionExtension;
@@ -17,8 +18,10 @@ public class ExecutableSpecExtension implements ConcordionExtension {
     @Override
     public void addTo(ConcordionExtender extender) {
         extender.withCommand(NAMESPACE, ATTRIBUTE_LANGUAGE, new RunGroovyCommand())
+                .withDocumentParsingListener(new CodeBlockDocumentParsingListener())
                 .withLinkedCSS("/highlightjs.org/styles/solarized-dark.css", new Resource("/highlightjs.org/solarized-dark.css"))
                 .withLinkedJavaScript("/highlightjs.org/highlight.pack.js", new Resource("/highlightjs.org/highlight.pack.js"))
                 .withLinkedJavaScript("/highlightjs.org/initHighlighting.js", new Resource("/highlightjs.org/initHighlighting.js"));
     }
+
 }
