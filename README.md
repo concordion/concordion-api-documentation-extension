@@ -14,9 +14,11 @@ Tired of writing documentation for your library? This [Concordion](http://concor
 
 ## Examples
 
+Browse the tests for examples. Here are the appetizers!
+
 ### Scripts do not need to return values
 
-    ```groovy result:#returnValue
+    ```groovy
     import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
     
     System.out.println("Namespace: " + ExecutableSpecExtension.NAMESPACE);
@@ -28,7 +30,7 @@ Tired of writing documentation for your library? This [Concordion](http://concor
     
 [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.html)
 
-### [Scripts with native format can return values](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.html)
+### Scripts with native format can return values
 
     ```groovy result:#returnValue
     
