@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/neuhalje/concordion-executable-documentation-extension.svg?branch=master)](https://travis-ci.org/neuhalje/concordion-executable-documentation-extension)
+[![codecov](https://codecov.io/gh/neuhalje/concordion-executable-documentation-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/neuhalje/concordion-executable-documentation-extension)
 [![Apache License 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 # concordion-executable-documentation-extension
