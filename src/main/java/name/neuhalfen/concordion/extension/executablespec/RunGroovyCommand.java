@@ -25,18 +25,22 @@ public class RunGroovyCommand extends AbstractCommand {
         resultRecorder.setSpecificationDescription(exampleName);
         String script = (String) evaluator.getVariable("#TEXT");
 
+        final boolean isRunScript = isRunScript(node);
 
-        ScriptResult scriptResult = null;
-        try {
-            switch (language) {
-                case GROOVY:
-                    scriptResult = runGroovy(script, evaluator);
-                    break;
-                default:
-                    scriptResult = ScriptResult.forUnsupportedLanguage();
+
+        ScriptResult scriptResult = ScriptResult.forUnsupportedLanguage();
+        if (isRunScript) {
+            try {
+                switch (language) {
+                    case GROOVY:
+                        scriptResult = runGroovy(script, evaluator);
+                        break;
+                    default:
+                        scriptResult = ScriptResult.forUnsupportedLanguage();
+                }
+            } catch (FailFastException f) {
+                // Ignore - it'll be re-thrown later by the implementation status checker if necessary.
             }
-        } catch (FailFastException f) {
-            // Ignore - it'll be re-thrown later by the implementation status checker if necessary.
         }
         node.getElement().addAttribute("id", exampleName);
 
@@ -45,6 +49,11 @@ public class RunGroovyCommand extends AbstractCommand {
         resultRecorder.setImplementationStatus(scriptResult.implementationStatus);
 
         emitCallResult(node, scriptResult, scriptResult.implementationStatus);
+    }
+
+    private boolean isRunScript(CommandCall node) {
+        final String runParameter = node.getParameter("run");
+        return runParameter == null || "true".equalsIgnoreCase(runParameter) || "yes".equalsIgnoreCase(runParameter);
     }
 
     private void publishResultToTestRun(CommandCall node, Evaluator evaluator, ScriptResult scriptResult) {
