@@ -91,16 +91,6 @@ public class MarkdownCodeBlockParser {
                 this.values = Collections.unmodifiableMap(values);
                 this.language = language != null ? language : "";
             }
-
-            public Config(String language) {
-                this.values = Collections.emptyMap();
-                this.language = language != null ? language : "";
-            }
-
-            public Config(Map<String, String> values) {
-                this.values = Collections.unmodifiableMap(values);
-                this.language = "";
-            }
         }
 
         public Config parseConfig() {
@@ -117,7 +107,7 @@ public class MarkdownCodeBlockParser {
                 language = "";
             }
 
-            final Map<String, String> values = new HashMap<String, String>();
+            final Map<String, String> values = new HashMap<>();
 
             final Matcher configMatcher = CONFIG_SETTING.matcher(remainingConfig);
             int currentConfigIndex = 0;

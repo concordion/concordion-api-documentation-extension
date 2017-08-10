@@ -135,6 +135,34 @@ content"""))
 
 
 
+    @Test
+    void textWithTwoCodeBlocks_secondIsFound() {
+        MarkdownCodeBlockParser sut = new MarkdownCodeBlockParser()
+
+        def block1 = sut.findFirst("""
+This is a test with a code block:
+``` block:config
+block
+content
+```
+
+after block
+
+``` block2:config
+second block: also found
+```
+""")
+
+        assertThat(block1.matches(), equalTo(true))
+
+        def block2 = block1.findNext()
+
+        assertThat(block2.matches(), equalTo(true))
+
+        assertThat(block2.extractConfig(), equalTo("block2:config"))
+        assertThat(block2.extractCode(), equalTo(
+                """second block: also found"""))
+    }
 
     @Test
     void config_languageOnly_configIsParsed() {
@@ -151,7 +179,7 @@ content
 
         assertThat(config.language, equalTo("language"))
 
-        assertThat(config.values.size(), equalTo( 0))
+        assertThat(config.values.size(), equalTo(0))
     }
 
 
@@ -170,8 +198,9 @@ content
 
         assertThat(config.language, equalTo("language"))
 
-        assertThat(config.values, equalTo( ["key": "value" ]))
+        assertThat(config.values, equalTo(["key": "value"]))
     }
+
     @Test
     void config_languageMultipleParams_configIsParsed() {
         MarkdownCodeBlockParser sut = new MarkdownCodeBlockParser()
@@ -187,6 +216,44 @@ content
 
         assertThat(config.language, equalTo("language"))
 
-        assertThat(config.values, equalTo( ["key": "value", "key2": "value2" ]))
+        assertThat(config.values, equalTo(["key": "value", "key2": "value2"]))
+    }
+
+
+    @Test
+    void config_noLanguageMultipleParamsWithSpace_configIsParsed() {
+        MarkdownCodeBlockParser sut = new MarkdownCodeBlockParser()
+
+        def block = sut.findFirst("""
+``` key:value key2:value2
+block
+content
+```
+""")
+
+        def config = block.parseConfig()
+
+        assertThat(config.language, equalTo(""))
+
+        assertThat(config.values, equalTo(["key": "value", "key2": "value2"]))
+    }
+
+
+    @Test
+    void config_noLanguageMultipleParamsNoSpace_configIsParsed() {
+        MarkdownCodeBlockParser sut = new MarkdownCodeBlockParser()
+
+        def block = sut.findFirst("""
+```key:value key2:value2
+block
+content
+```
+""")
+
+        def config = block.parseConfig()
+
+        assertThat(config.language, equalTo(""))
+
+        assertThat(config.values, equalTo(["key": "value", "key2": "value2"]))
     }
 }
