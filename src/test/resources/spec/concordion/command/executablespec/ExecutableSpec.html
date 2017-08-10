@@ -1,4 +1,4 @@
-<html xmlns:exec="http://neuhalfen.name/concordion/extensions/run"
+<html xmlns:script="http://neuhalfen.name/concordion/extensions/run"
       xmlns:concordion="http://www.concordion.org/2007/concordion">
 <head>
     <link href="../..//concordion.css" rel="stylesheet" type="text/css"/>
@@ -16,7 +16,7 @@
 
 <div concordion:example="MyExample">
 
-   <pre> <code exec:lang="groovy" exec:result="#returnValue">
+   <pre> <code script:lang="groovy" script:result="#returnValue">
     return 42
 </code></pre>
 
@@ -24,29 +24,16 @@
 </div>
 
 <pre>
-<code exec:lang="groovy">
-    import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
+<code script:lang="groovy">
+import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
 
-    System.out.println("Namespace: " + ExecutableSpecExtension.NAMESPACE);
-    System.out.println("OUT 1");
-    System.err.println("ERR 1");
-    System.out.println("OUT 2");
-    System.err.println("ERR 2");
+System.out.println("Namespace: " + ExecutableSpecExtension.NAMESPACE);
+System.out.println("OUT 1");
+System.err.println("ERR 1");
+System.out.println("OUT 2");
+System.err.println("ERR 2");
 </code></pre>
 
-<code exec:lang="groovy">
-    System.out.println("This is a test");
-</code>
 
-
-<code exec:lang="groovy">
-    // throw new RuntimeException("aaah");
-</code>
-
-<code exec:lang="groovy">
-    xxxCompiler error;
-    System.out.println("WTF");
-
-</code>
 </body>
 </html>
