@@ -1,6 +1,7 @@
 package name.neuhalfen.concordion.extension.executablespec;
 
 
+import org.concordion.api.Resource;
 import org.concordion.api.extension.ConcordionExtender;
 import org.concordion.api.extension.ConcordionExtension;
 
@@ -10,8 +11,14 @@ public class ExecutableSpecExtension implements ConcordionExtension {
     public static final String ATTRIBUTE_LANGUAGE = "lang";
     public static final String ATTRIBUTE_RESULT_VARIABLE = "result";
 
+
+    private static final String INITIALIZE_HIGHLIGHTING = "hljs.initHighlightingOnLoad();";
+
     @Override
     public void addTo(ConcordionExtender extender) {
-        extender.withCommand(NAMESPACE, ATTRIBUTE_LANGUAGE, new RunGroovyCommand());
+        extender.withCommand(NAMESPACE, ATTRIBUTE_LANGUAGE, new RunGroovyCommand())
+                .withLinkedCSS("/highlightjs.org/styles/solarized-dark.css", new Resource("/highlightjs.org/solarized-dark.css"))
+                .withLinkedJavaScript("/highlightjs.org/highlight.pack.js", new Resource("/highlightjs.org/highlight.pack.js"))
+                .withLinkedJavaScript("/highlightjs.org/initHighlighting.js", new Resource("/highlightjs.org/initHighlighting.js"));
     }
 }

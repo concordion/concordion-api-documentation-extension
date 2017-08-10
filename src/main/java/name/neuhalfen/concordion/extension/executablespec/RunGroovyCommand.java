@@ -62,14 +62,26 @@ public class RunGroovyCommand extends AbstractCommand {
         // let's be really nice and add the implementation status text into the element itself.
         ImplementationStatusChecker checker = ImplementationStatusChecker.implementationStatusCheckerFor(implementationStatus);
 
-        String note = checker.printNoteToString();
+        final String note = checker.printNoteToString();
+        final Element outputElement = node.getElement();
+
         if (note != null) {
             Element fixtureNode = new Element("p");
             fixtureNode.appendText(note);
+
+            outputElement.appendChild(fixtureNode);
         }
 
         if (scriptResult.output != null && scriptResult.output.length() > 0) {
-            node.getElement().appendSister(new Element("pre").appendText(scriptResult.output));
+
+            Element stdOut = new Element("code");
+            stdOut.appendText(scriptResult.output);
+
+            stdOut.addStyleClass("shell");
+
+            // The structure is (normally):
+            //     pre code {groovy}, {stdout}
+            outputElement.appendSister(stdOut);
         }
     }
 
