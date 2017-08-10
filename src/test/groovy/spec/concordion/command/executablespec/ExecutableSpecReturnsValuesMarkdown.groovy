@@ -9,9 +9,6 @@ import org.junit.runner.RunWith
 @RunWith(ConcordionRunner.class)
 @Extensions(ExecutableSpecExtension)
 @ConcordionOptions(declareNamespaces = ["script", "http://neuhalfen.name/concordion/extensions/run"])
-class ExecutableSpecMarkdownTest {
+class ExecutableSpecReturnsValuesMarkdown {
 
-    Integer add(Integer a, Integer b) {
-        a + b
-    }
 }
