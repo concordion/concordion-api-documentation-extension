@@ -11,3 +11,5 @@ bin/
 # IDEA
 .idea/
 *.iml
+out/
+.DS_Store
