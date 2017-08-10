@@ -47,7 +47,7 @@ gitPublish {
     // what to publish, this is a standard CopySpec
     contents {
         from 'src/pages'
-        from('build/concordion/spec/concordion/command/set') {
+        from('build/concordion/') {
             into 'spec'
         }
     }
