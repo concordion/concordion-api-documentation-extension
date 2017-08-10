@@ -2,7 +2,9 @@ plugins {
     id 'org.ajoberstar.git-publish' version '0.3.0'
 }
 apply plugin: "groovy"
-description = 'Demonstration of the concordion input style extension'
+apply plugin: "jacoco"
+
+description = 'Executable demo code in concordion'
 
 wrapper {
     gradleVersion = "4.1"
@@ -27,6 +29,15 @@ dependencies {
 test {
     systemProperty "concordion.output.dir", "build/concordion"
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
 
 // Publish github pages
 
