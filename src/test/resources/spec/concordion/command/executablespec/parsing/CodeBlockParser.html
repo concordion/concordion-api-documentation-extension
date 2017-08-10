@@ -9,15 +9,26 @@
 <h1>Markdown Codeblocks will be replaced</h1>
 
 
-This test will only change the output (and not verify it):
+Attention: This test will only change the output (and not verify it)!
 
-``` language: groovy
-    xxxCompiler error;
-    System.out.println("We should never get here!");
+But you will see, that this here gets converted to a code block:
+
+```groovy
+    System.out.println("This is awesome!");
 ```
 
 See?
 
+<h2>Even for multiple code blocks</h2>
+```bash
+rm -rf /
+```
 
+<h2>Want to disable execution?</h2>
+
+```groovy run:false
+xxxCompiler error;
+System.out.println("We should never get here!");
+```
 </body>
 </html>

@@ -1,5 +1,8 @@
 package name.neuhalfen.concordion.extension.executablespec.parsing;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,6 +14,12 @@ public class MarkdownCodeBlockParser {
                     + "^```$                 # Block end"
             ,
             Pattern.MULTILINE | Pattern.COMMENTS | Pattern.DOTALL);
+
+    private final static Pattern CONFIG_LANGUAGE = Pattern.compile(
+            "^\\p{Blank}*(?<language>[^:\\t ]*)(?:\\p{Blank}+|$)");
+
+    private final static Pattern CONFIG_SETTING = Pattern.compile(
+            "\\p{Blank}*(?<key>[^:\\t ]+)\\p{Blank}*[:]\\p{Blank}*(?<value>[^:\\t ]+)");
 
 
     public final static class Block {
@@ -73,9 +82,58 @@ public class MarkdownCodeBlockParser {
                 return Block.noMatch();
             }
         }
+
+        public final static class Config {
+            public final Map<String, String> values;
+            public final String language;
+
+            public Config(String language, Map<String, String> values) {
+                this.values = Collections.unmodifiableMap(values);
+                this.language = language != null ? language : "";
+            }
+
+            public Config(String language) {
+                this.values = Collections.emptyMap();
+                this.language = language != null ? language : "";
+            }
+
+            public Config(Map<String, String> values) {
+                this.values = Collections.unmodifiableMap(values);
+                this.language = "";
+            }
+        }
+
+        public Config parseConfig() {
+
+            final String language;
+
+            String remainingConfig = extractConfig();
+
+            final Matcher languageMatcher = CONFIG_LANGUAGE.matcher(remainingConfig);
+            if (languageMatcher.find()) {
+                language = languageMatcher.group("language");
+                remainingConfig = remainingConfig.substring(languageMatcher.end());
+            } else {
+                language = "";
+            }
+
+            final Map<String, String> values = new HashMap<String, String>();
+
+            final Matcher configMatcher = CONFIG_SETTING.matcher(remainingConfig);
+            int currentConfigIndex = 0;
+
+            while (configMatcher.find(currentConfigIndex)) {
+                final String key = configMatcher.group("key");
+                final String value = configMatcher.group("value");
+                values.put(key, value);
+                currentConfigIndex = configMatcher.end();
+            }
+
+            return new Config(language, values);
+        }
     }
 
-    public  Block findFirst(String elementValue) {
+    public Block findFirst(String elementValue) {
         final Matcher matcher = CODEBLOCK.matcher(elementValue);
         if (matcher.find()) {
             return Block.match(elementValue, matcher.start(), matcher.end(), matcher.start("config"), matcher.end("config"), matcher.start("code"), matcher.end("code"));

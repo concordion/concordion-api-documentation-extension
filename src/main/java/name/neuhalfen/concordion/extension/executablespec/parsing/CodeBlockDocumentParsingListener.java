@@ -68,7 +68,15 @@ public class CodeBlockDocumentParsingListener implements DocumentParsingListener
         Element code = new Element("code");
         code.appendChild(codeBlock.extractCode());
 
-        // fixme: Parse Block config
+        final MarkdownCodeBlockParser.Block.Config config = codeBlock.parseConfig();
+        if (!config.language.isEmpty()) {
+            code.addAttribute(new Attribute("script:lang", "http://neuhalfen.name/concordion/extensions/run", config.language));
+        }
+
+        for (String key : config.values.keySet()) {
+            code.addAttribute(new Attribute("script:" + key, "http://neuhalfen.name/concordion/extensions/run", config.values.get(key)));
+        }
+
         pre.appendChild(code);
         return pre;
     }
