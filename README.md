@@ -25,14 +25,14 @@ To enable extensions, set systemProperty
  <dependency>
   <groupId>name.neuhalfen.concordion.extension</groupId>
   <artifactId>ExecutableSpecExtension</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <type>pom</type>
 </dependency>
 ```
 
 ### Gradle
 ```
-compile 'name.neuhalfen.concordion.extension:ExecutableSpecExtension:0.0.2'
+compile 'name.neuhalfen.concordion.extension:ExecutableSpecExtension:0.0.3'
 ```
 
 ## Examples
