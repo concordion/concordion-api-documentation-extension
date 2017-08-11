@@ -15,7 +15,7 @@ enum SCRIPTING_LANGUAGE {
             return UNKNOWN;
         }
         name = name.trim().toLowerCase();
-        if ("groovy".equals(name)) return GROOVY;
+        if (GROOVY.name.equals(name)) return GROOVY;
         return UNKNOWN;
     }
 }
