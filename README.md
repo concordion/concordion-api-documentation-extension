@@ -37,6 +37,9 @@ compile 'name.neuhalfen.concordion.extension:ExecutableSpecExtension:0.0.2'
 
 ## Examples
 
+![Screenshot](assets/ExampleScreenshot.png)
+
+
 Browse the tests for examples. Here are the appetizers!
 
 ### Scripts do not need to return values
