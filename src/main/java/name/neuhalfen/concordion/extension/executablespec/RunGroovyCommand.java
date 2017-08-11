@@ -2,6 +2,7 @@ package name.neuhalfen.concordion.extension.executablespec;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
+import name.neuhalfen.concordion.extension.executablespec.execution.ScriptResult;
 import org.concordion.api.*;
 import org.concordion.internal.FailFastException;
 import org.concordion.internal.ImplementationStatusChecker;
@@ -27,27 +28,20 @@ final class RunGroovyCommand extends AbstractCommand {
 
         final boolean isRunScript = isRunScript(node);
 
-        ScriptResult scriptResult = ScriptResult.forUnsupportedLanguage();
+
+        final ScriptResult scriptResult;
         if (isRunScript) {
-            try {
-                switch (language) {
-                    case GROOVY:
-                        scriptResult = runGroovy(script, evaluator);
-                        break;
-                    default:
-                        scriptResult = ScriptResult.forUnsupportedLanguage();
-                }
-            } catch (FailFastException f) {
-                // Ignore - it'll be re-thrown later by the implementation status checker if necessary.
-            }
+                 scriptResult = language.scriptRunner().run(script,evaluator);
+        }else{
+            scriptResult = ScriptResult.forDisabledRunning();
         }
         node.getElement().addAttribute("id", exampleName);
 
         publishResultToTestRun(node, evaluator, scriptResult);
 
-        resultRecorder.setImplementationStatus(scriptResult.implementationStatus);
+        resultRecorder.setImplementationStatus(scriptResult.getImplementationStatus());
 
-        emitCallResult(node, scriptResult, scriptResult.implementationStatus);
+        emitCallResult(node, scriptResult, scriptResult.getImplementationStatus());
     }
 
     private boolean isRunScript(CommandCall node) {
@@ -58,7 +52,7 @@ final class RunGroovyCommand extends AbstractCommand {
     private void publishResultToTestRun(CommandCall node, Evaluator evaluator, ScriptResult scriptResult) {
         final String setResultTo = node.getParameter(ExecutableSpecExtension.ATTRIBUTE_RESULT_VARIABLE);
         if (setResultTo != null) {
-            evaluator.setVariable(setResultTo, scriptResult.returnValue);
+            evaluator.setVariable(setResultTo, scriptResult.getReturnValue());
         }
     }
 
@@ -80,10 +74,10 @@ final class RunGroovyCommand extends AbstractCommand {
             outputElement.appendChild(fixtureNode);
         }
 
-        if (scriptResult.output != null && scriptResult.output.length() > 0) {
+        if (scriptResult.getOutput().length() > 0) {
 
             Element stdOut = new Element("code");
-            stdOut.appendText(scriptResult.output);
+            stdOut.appendText(scriptResult.getOutput());
 
             stdOut.addStyleClass("shell");
 
@@ -93,34 +87,6 @@ final class RunGroovyCommand extends AbstractCommand {
         }
     }
 
-    private ScriptResult runGroovy(String groovy, Evaluator evaluator) {
-
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-
-        final PrintStream oldOut = System.out;
-        final PrintStream oldErr = System.err;
-
-        Object returnValue;
-        try (
-                final PrintStream newOut = new PrintStream(output)
-        ) {
-            Binding binding = new Binding();
-
-            // Bind System.out|err to "output"
-            System.setOut(newOut);
-            System.setErr(newOut);
-
-            GroovyShell shell = new GroovyShell(binding);
-            returnValue = shell.evaluate(groovy);
-        } finally {
-            System.setOut(oldOut);
-            System.setErr(oldErr);
-        }
-
-        String outputString = output.toString();
-
-        return ScriptResult.forSupportedLanguage(returnValue, outputString);
-    }
 
 
     private String getExampleName(CommandCall node) {
