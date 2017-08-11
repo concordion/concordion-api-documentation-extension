@@ -51,7 +51,16 @@ Browse the tests for examples. Here are the appetizers!
     System.err.println("ERR 2");
     ```
     
-[See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.html)
+```java
+@RunWith(ConcordionRunner.class)
+@Extensions(ExecutableSpecExtension)
+class ExecutableSpecReturnsValuesMarkdownTest {
+  // no code needed for this
+}
+```
+* [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.md)
+* [Fixture](src/test/groovy/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.groovy)
+* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.html)
 
 ### Scripts with native format can return values
 
@@ -61,10 +70,11 @@ Browse the tests for examples. Here are the appetizers!
     
     ```
 
-This script returns [49]( - "?=#returnValue")!
+    This script returns [49]( - "?=#returnValue") (this check is verified as part of the specification)!
 
-[See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.html)
-
+* [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.md)
+* [Fixture](src/test/groovy/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.groovy)
+* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/ExecutableSpecReturnsValuesMarkdown.html)
 
 ### Compile Errors fail the test
 
@@ -73,7 +83,10 @@ This script returns [49]( - "?=#returnValue")!
     System.out.println("We should never get here!");
     ```
 
-[See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/CompileErrors.html)
+
+* [Source file (html)](src/test/resources/spec/concordion/command/executablespec/CompileErrors.html)
+* [Fixture](src/test/groovy/spec/concordion/command/executablespec/CompileErrorsTest.groovy)
+* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/CompileErrors.html)
 
 ### Skip compilation/execution
 
@@ -81,8 +94,10 @@ This script returns [49]( - "?=#returnValue")!
     xxxCompiler error;
     System.out.println("We should never get here!");
     ```
- 
-[See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/MarkDownNoExecution.html)
+    
+* [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/MarkDownNoExecution.md)
+* [Fixture](src/test/groovy/spec/concordion/command/executablespec/MarkDownNoExecutionTest.groovy)
+* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/MarkDownNoExecution.html)
 
 ### Other languages (without execution)
     ``` shell
@@ -92,7 +107,9 @@ This script returns [49]( - "?=#returnValue")!
     drwx------@ 9 jens  staff  306 Aug 10 16:42 demo
     ```
     
-[See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/UnknownLanguages.html)
+* [Source file (html)](src/test/resources/spec/concordion/command/executablespec/UnknownLanguages.html)
+* [Fixture](src/test/groovy/spec/concordion/command/executablespec/UnknownLanguagesTest.groovy)
+* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/UnknownLanguages.html)
 
 # Thanks
 
