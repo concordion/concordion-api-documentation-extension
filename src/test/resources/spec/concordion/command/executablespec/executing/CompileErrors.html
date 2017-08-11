@@ -1,17 +1,17 @@
 <html xmlns:script="http://neuhalfen.name/concordion/extensions/run"
       xmlns:concordion="http://www.concordion.org/2007/concordion">
 <head>
-    <link href="../..//concordion.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../concordion.css" rel="stylesheet" type="text/css"/>
     <title>Compiler errors fail the test</title>
 </head>
 <body>
 
-<h1>Exceptions errors will fail the test</h1>
+<h1>Compile errors will fail the test</h1>
 
 <pre>
 <code script:lang="groovy">
-throw new RuntimeException("Abort the mission!");
-System.out.println("I should never reach this!");
+    xxxCompiler error;
+    System.out.println("We should never get here!");
 </code>
 </pre>
 

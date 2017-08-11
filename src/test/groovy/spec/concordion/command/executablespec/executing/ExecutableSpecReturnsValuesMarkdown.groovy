@@ -1,4 +1,4 @@
-package spec.concordion.command.executablespec
+package spec.concordion.command.executablespec.executing
 
 import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
 import org.concordion.api.extension.Extensions
@@ -8,6 +8,7 @@ import org.junit.runner.RunWith
 
 @RunWith(ConcordionRunner.class)
 @Extensions(ExecutableSpecExtension)
-class MarkDownNativeCodeTest {
+@ConcordionOptions(declareNamespaces = ["script", "http://neuhalfen.name/concordion/extensions/run"])
+class ExecutableSpecReturnsValuesMarkdown {
 
 }

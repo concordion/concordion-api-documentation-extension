@@ -1,4 +1,4 @@
-package spec.concordion.command.executablespec
+package spec.concordion.command.executablespec.executing
 
 import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
 import org.concordion.api.ExpectedToFail
@@ -8,8 +8,7 @@ import org.junit.runner.RunWith
 
 @RunWith(ConcordionRunner.class)
 @Extensions(ExecutableSpecExtension)
-@ExpectedToFail
-class CompileErrorsTest {
+class UnknownLanguagesTest {
 
 
 }

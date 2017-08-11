@@ -1,4 +1,4 @@
-package spec.concordion.command.executablespec
+package spec.concordion.command.executablespec.executing
 
 import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
 import org.concordion.api.extension.Extensions
@@ -7,9 +7,6 @@ import org.junit.runner.RunWith
 
 @RunWith(ConcordionRunner.class)
 @Extensions(ExecutableSpecExtension)
-class ExecutableSpecTest {
+class MarkDownNoExecutionTest {
 
-    Integer add(Integer a, Integer b) {
-        a + b
-    }
 }
