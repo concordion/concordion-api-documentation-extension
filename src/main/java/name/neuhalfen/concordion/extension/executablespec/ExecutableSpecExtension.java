@@ -10,10 +10,8 @@ public class ExecutableSpecExtension implements ConcordionExtension {
     public static final String NAMESPACE = "http://neuhalfen.name/concordion/extensions/run";
 
     public static final String ATTRIBUTE_LANGUAGE = "lang";
+    public static final String ATTRIBUTE_RUN = "run";
     public static final String ATTRIBUTE_RESULT_VARIABLE = "result";
-
-
-    private static final String INITIALIZE_HIGHLIGHTING = "hljs.initHighlightingOnLoad();";
 
     @Override
     public void addTo(ConcordionExtender extender) {

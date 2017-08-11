@@ -52,7 +52,7 @@ public class RunGroovyCommand extends AbstractCommand {
     }
 
     private boolean isRunScript(CommandCall node) {
-        final String runParameter = node.getParameter("run");
+        final String runParameter = node.getParameter(ExecutableSpecExtension.ATTRIBUTE_RUN);
         return runParameter == null || "true".equalsIgnoreCase(runParameter) || "yes".equalsIgnoreCase(runParameter);
     }
 
