@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
-public class RunGroovyCommand extends AbstractCommand {
+final class RunGroovyCommand extends AbstractCommand {
 
     public List<CommandCall> getExamples(CommandCall command) {
         return Arrays.asList(command);
@@ -26,7 +26,6 @@ public class RunGroovyCommand extends AbstractCommand {
         String script = (String) evaluator.getVariable("#TEXT");
 
         final boolean isRunScript = isRunScript(node);
-
 
         ScriptResult scriptResult = ScriptResult.forUnsupportedLanguage();
         if (isRunScript) {
@@ -103,7 +102,7 @@ public class RunGroovyCommand extends AbstractCommand {
 
         Object returnValue;
         try (
-                final PrintStream newOut = new PrintStream(output);
+                final PrintStream newOut = new PrintStream(output)
         ) {
             Binding binding = new Binding();
 
