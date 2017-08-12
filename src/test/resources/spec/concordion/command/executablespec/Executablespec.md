@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/neuhalje/concordion-api-documentation-extension.svg?branch=master)](https://travis-ci.org/neuhalje/concordion-api-documentation-extension)
-[![codecov](https://codecov.io/gh/neuhalje/concordion-api-documentation-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/neuhalje/concordion-api-documentation-extension)
+[![Build Status](https://travis-ci.org/concordion/concordion-api-documentation-extension.svg?branch=master)](https://travis-ci.org/concordion/concordion-api-documentation-extension)
+[![codecov](https://codecov.io/gh/concordion/concordion-api-documentation-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/concordion/concordion-api-documentation-extension)
 [![Apache License 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-[![Download](https://api.bintray.com/packages/neuhalje/maven/concordion-api-documentation-extension/images/download.svg) ](https://bintray.com/neuhalje/maven/concordion-api-documentation-extension/_latestVersion)
+[![Download](https://api.bintray.com/packages/concordion/maven/concordion-api-documentation-extension/images/download.svg) ](https://bintray.com/concordion/maven/concordion-api-documentation-extension/_latestVersion)
 
 # Executable Documentation with Concordion
 

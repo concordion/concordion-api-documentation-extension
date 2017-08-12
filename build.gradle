@@ -63,7 +63,7 @@ check.dependsOn jacocoTestReport
 
 gitPublish {
     // where to publish to (repo must exist)
-    repoUri = 'https://github.com/neuhalje/concordion-api-documentation-extension.git'
+    repoUri = 'https://github.com/concordion/concordion-api-documentation-extension.git'
     // branch will be created if it doesn't exist
     branch = 'gh-pages'
 
