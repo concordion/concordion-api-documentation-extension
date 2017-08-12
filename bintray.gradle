@@ -1,9 +1,9 @@
 def pomConfig = {
 
     scm {
-        connection 'scm:git:https://github.com/neuhalje/concordion-executable-documentation-extension.git'
-        developerConnection 'scm:git:git@github.com:neuhalje/concordion-executable-documentation-extension.git'
-        url 'https://github.com/neuhalje/concordion-executable-documentation-extension'
+        connection 'scm:git:https://github.com/neuhalje/concordion-api-documentation-extension.git'
+        developerConnection 'scm:git:git@github.com:neuhalje/concordion-api-documentation-extension.git'
+        url 'https://github.com/neuhalje/concordion-api-documentation-extension'
     }
 
     licenses {
@@ -56,7 +56,7 @@ publishing {
                 def root = asNode()
                 root.appendNode('description', 'Executable Documentation with Concordion')
                 root.appendNode('name', 'ExecutableSpecExtension')
-                root.appendNode('url', 'https://github.com/neuhalje/concordion-executable-documentation-extension')
+                root.appendNode('url', 'https://github.com/neuhalje/concordion-api-documentation-extension')
                 root.children().last() + pomConfig
             }
         }
@@ -73,13 +73,13 @@ bintray {
 
     pkg {
         repo = 'maven'
-        name = 'concordion-executable-documentation-extension'
+        name = 'concordion-api-documentation-extension'
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/neuhalje/concordion-executable-documentation-extension.git'
-        websiteUrl = 'https://github.com/neuhalje/concordion-executable-documentation-extension'
+        vcsUrl = 'https://github.com/neuhalje/concordion-api-documentation-extension.git'
+        websiteUrl = 'https://github.com/neuhalje/concordion-api-documentation-extension'
         labels = ['concordion', 'executable', 'specification', 'example-code', 'groovy' ]
 
-        githubRepo = 'neuhalje/concordion-executable-documentation-extension'
+        githubRepo = 'neuhalje/concordion-api-documentation-extension'
         githubReleaseNotesFile = 'README.md'
 
         version {

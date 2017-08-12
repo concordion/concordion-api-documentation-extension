@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/neuhalje/concordion-executable-documentation-extension.svg?branch=master)](https://travis-ci.org/neuhalje/concordion-executable-documentation-extension)
-[![codecov](https://codecov.io/gh/neuhalje/concordion-executable-documentation-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/neuhalje/concordion-executable-documentation-extension)
+[![Build Status](https://travis-ci.org/neuhalje/concordion-api-documentation-extension.svg?branch=master)](https://travis-ci.org/neuhalje/concordion-api-documentation-extension)
+[![codecov](https://codecov.io/gh/neuhalje/concordion-api-documentation-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/neuhalje/concordion-api-documentation-extension)
 [![Apache License 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-[![Download](https://api.bintray.com/packages/neuhalje/maven/concordion-executable-documentation-extension/images/download.svg) ](https://bintray.com/neuhalje/maven/concordion-executable-documentation-extension/_latestVersion)
+[![Download](https://api.bintray.com/packages/neuhalje/maven/concordion-api-documentation-extension/images/download.svg) ](https://bintray.com/neuhalje/maven/concordion-api-documentation-extension/_latestVersion)
 
 # Executable Documentation with Concordion
 
@@ -63,7 +63,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
 ```
 * [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.md)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.html)
+* [See the result here](https://neuhalje.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.html)
 
 ### Scripts with native format can return values
 
@@ -77,7 +77,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
 
 * [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.md)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.html)
+* [See the result here](https://neuhalje.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.html)
 
 ### Compile Errors fail the test
 
@@ -89,7 +89,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
 
 * [Source file (html)](src/test/resources/spec/concordion/command/executablespec/executing/CompileErrors.html)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/CompileErrorsTest.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/CompileErrors.html)
+* [See the result here](https://neuhalje.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/CompileErrors.html)
 
 ### Skip compilation/execution
 
@@ -100,7 +100,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
     
 * [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/executing/MarkDownNoExecution.md)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/MarkDownNoExecutionTest.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/MarkDownNoExecution.html)
+* [See the result here](https://neuhalje.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/MarkDownNoExecution.html)
 
 ### Other languages (without execution)
     ``` shell
@@ -112,7 +112,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
     
 * [Source file (html)](src/test/resources/spec/concordion/command/executablespec/executing/UnknownLanguages.html)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/UnknownLanguagesTest.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/UnknownLanguages.html)
+* [See the result here](https://neuhalje.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/UnknownLanguages.html)
 
 # Thanks
 
