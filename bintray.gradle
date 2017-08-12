@@ -49,13 +49,13 @@ publishing {
             artifact sourcesJar
             artifact javadocJar
             groupId group
-            artifactId 'ExecutableSpecExtension'
+            artifactId 'concordion-api-documentation-extension'
             version  property('version')
 
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'Executable Documentation with Concordion')
-                root.appendNode('name', 'ExecutableSpecExtension')
+                root.appendNode('name', 'concordion-api-documentation-extension')
                 root.appendNode('url', 'https://github.com/concordion/concordion-api-documentation-extension')
                 root.children().last() + pomConfig
             }

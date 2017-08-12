@@ -20,8 +20,8 @@ To enable extensions use the annotation `@Extensions(ExecutableSpecExtension.cla
 ### Maven
 ```xml
  <dependency>
-  <groupId>name.neuhalfen.concordion.extension</groupId>
-  <artifactId>ExecutableSpecExtension</artifactId>
+  <groupId>org.concordion</groupId>
+  <artifactId>concordion-api-documentation-extension</artifactId>
   <version>0.0.3</version>
   <type>pom</type>
 </dependency>
@@ -29,7 +29,7 @@ To enable extensions use the annotation `@Extensions(ExecutableSpecExtension.cla
 
 ### Gradle
 ```
-compile 'name.neuhalfen.concordion.extension:ExecutableSpecExtension:0.0.3'
+compile 'org.concordion:concordion-api-documentation-extension:0.0.3'
 ```
 
 ## Examples

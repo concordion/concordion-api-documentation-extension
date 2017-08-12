@@ -10,8 +10,8 @@ plugins {
 apply plugin: "groovy"
 apply plugin: "jacoco"
 
-description = 'Executable demo code in concordion'
-group = 'name.neuhalfen.concordion.extension'
+description = 'Executable API documentation in concordion'
+group = 'org.concordion'
 version = '0.0.3'
 
 // bintray deployment

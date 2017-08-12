@@ -19,8 +19,8 @@ To enable extension use the annotation `@Extensions(ExecutableSpecExtension.clas
   
 ### Maven
      <dependency>
-      <groupId>name.neuhalfen.concordion.extension</groupId>
-      <artifactId>ExecutableSpecExtension</artifactId>
+      <groupId>org.concordion</groupId>
+      <artifactId>concordion-api-documentation-extension</artifactId>
       <version>0.0.2</version>
       <type>pom</type>
     </dependency>
@@ -28,7 +28,7 @@ To enable extension use the annotation `@Extensions(ExecutableSpecExtension.clas
 
 ### Gradle
 
-    compile 'name.neuhalfen.concordion.extension:ExecutableSpecExtension:0.0.2'
+    compile 'org.concordion:concordion-api-documentation-extension:0.0.2'
 
 ## Examples
 
