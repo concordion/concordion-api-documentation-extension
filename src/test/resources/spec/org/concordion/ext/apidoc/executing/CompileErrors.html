@@ -1,0 +1,20 @@
+<html xmlns:script="urn:concordion-extensions:2010"
+      xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <link href="../../../concordion.css" rel="stylesheet" type="text/css"/>
+    <title>Compiler errors fail the test</title>
+</head>
+<body>
+
+<h1>Compile errors will fail the test</h1>
+
+<pre>
+<code script:lang="groovy">
+    xxxCompiler error;
+    System.out.println("We should never get here!");
+</code>
+</pre>
+
+
+</body>
+</html>

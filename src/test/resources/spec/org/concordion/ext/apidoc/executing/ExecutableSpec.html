@@ -1,0 +1,39 @@
+<html xmlns:script="urn:concordion-extensions:2010"
+      xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <link href="../../../concordion.css" rel="stylesheet" type="text/css"/>
+    <title>Run groovy scripts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+</head>
+<body>
+
+<h1>ExecutableSpec Examples</h1>
+<p>To enable extensions, set systemProperty
+    -Dconcordion.extensions=org.concordion.ext.apidoc.ExecutableSpecExtension or use
+    annotation
+    @Extensions(ExecutableSpecExtension.class)</p>
+
+<div concordion:example="MyExample">
+
+   <pre> <code script:lang="groovy" script:result="#returnValue">
+    return 42
+</code></pre>
+
+    This script returns <span concordion:assert-equals="#returnValue">42</span>!
+</div>
+
+<pre>
+<code script:lang="groovy">
+import org.concordion.ext.apidoc.ExecutableSpecExtension
+
+System.out.println("Namespace: " + ExecutableSpecExtension.NAMESPACE);
+System.out.println("OUT 1");
+System.err.println("ERR 1");
+System.out.println("OUT 2");
+System.err.println("ERR 2");
+</code></pre>
+
+
+</body>
+</html>

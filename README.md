@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/neuhalje/concordion-executable-documentation-extension.svg?branch=master)](https://travis-ci.org/neuhalje/concordion-executable-documentation-extension)
-[![codecov](https://codecov.io/gh/neuhalje/concordion-executable-documentation-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/neuhalje/concordion-executable-documentation-extension)
+[![Build Status](https://travis-ci.org/concordion/concordion-api-documentation-extension.svg?branch=master)](https://travis-ci.org/concordion/concordion-api-documentation-extension)
+[![codecov](https://codecov.io/gh/concordion/concordion-api-documentation-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/concordion/concordion-api-documentation-extension)
 [![Apache License 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-[![Download](https://api.bintray.com/packages/neuhalje/maven/concordion-executable-documentation-extension/images/download.svg) ](https://bintray.com/neuhalje/maven/concordion-executable-documentation-extension/_latestVersion)
+[![Download](https://api.bintray.com/packages/concordion/maven/concordion-api-documentation-extension/images/download.svg) ](https://bintray.com/concordion/maven/concordion-api-documentation-extension/_latestVersion)
 
 # Executable Documentation with Concordion
 
@@ -15,24 +15,21 @@ Tired of writing documentation for your library? This [Concordion](http://concor
 
 ## HOWTO
 
-To enable extensions, set systemProperty
-    `-Dconcordion.extensions=name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension` or use
-    the annotation
-    `@Extensions(ExecutableSpecExtension.class)`.
+To enable extensions use the annotation `@Extensions(ExecutableSpecExtension.class)`.
   
 ### Maven
 ```xml
  <dependency>
-  <groupId>name.neuhalfen.concordion.extension</groupId>
-  <artifactId>ExecutableSpecExtension</artifactId>
-  <version>0.0.3</version>
+  <groupId>org.concordion</groupId>
+  <artifactId>concordion-api-documentation-extension</artifactId>
+  <version>0.0.4</version>
   <type>pom</type>
 </dependency>
 ```
 
 ### Gradle
 ```
-compile 'name.neuhalfen.concordion.extension:ExecutableSpecExtension:0.0.3'
+compile 'org.concordion:concordion-api-documentation-extension:0.0.4'
 ```
 
 ## Examples
@@ -45,7 +42,7 @@ Browse the tests for examples. Here are the appetizers!
 ### Scripts do not need to return values
 
     ```groovy
-    import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
+    import ExecutableSpecExtension
     
     System.out.println("Namespace: " + ExecutableSpecExtension.NAMESPACE);
     System.out.println("OUT 1");
@@ -63,7 +60,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
 ```
 * [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.md)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.html)
+* [See the result here](https://concordion.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.html)
 
 ### Scripts with native format can return values
 
@@ -77,7 +74,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
 
 * [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.md)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.html)
+* [See the result here](https://concordion.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/ExecutableSpecReturnsValuesMarkdown.html)
 
 ### Compile Errors fail the test
 
@@ -89,7 +86,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
 
 * [Source file (html)](src/test/resources/spec/concordion/command/executablespec/executing/CompileErrors.html)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/CompileErrorsTest.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/CompileErrors.html)
+* [See the result here](https://concordion.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/CompileErrors.html)
 
 ### Skip compilation/execution
 
@@ -100,7 +97,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
     
 * [Source file (markdown)](src/test/resources/spec/concordion/command/executablespec/executing/MarkDownNoExecution.md)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/MarkDownNoExecutionTest.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/MarkDownNoExecution.html)
+* [See the result here](https://concordion.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/MarkDownNoExecution.html)
 
 ### Other languages (without execution)
     ``` shell
@@ -112,7 +109,7 @@ class ExecutableSpecReturnsValuesMarkdownTest {
     
 * [Source file (html)](src/test/resources/spec/concordion/command/executablespec/executing/UnknownLanguages.html)
 * [Fixture](src/test/groovy/spec/concordion/command/executablespec/executing/UnknownLanguagesTest.groovy)
-* [See the result here](https://neuhalje.github.io/concordion-executable-documentation-extension/spec/spec/concordion/command/executablespec/executing/UnknownLanguages.html)
+* [See the result here](https://concordion.github.io/concordion-api-documentation-extension/spec/spec/concordion/command/executablespec/executing/UnknownLanguages.html)
 
 # Thanks
 

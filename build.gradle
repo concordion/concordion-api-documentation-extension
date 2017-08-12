@@ -10,9 +10,9 @@ plugins {
 apply plugin: "groovy"
 apply plugin: "jacoco"
 
-description = 'Executable demo code in concordion'
-group = 'name.neuhalfen.concordion.extension'
-version = '0.0.3'
+description = 'Executable API documentation in concordion'
+group = 'org.concordion'
+version = '0.0.4'
 
 // bintray deployment
 // configured in gradle.properties
@@ -63,7 +63,7 @@ check.dependsOn jacocoTestReport
 
 gitPublish {
     // where to publish to (repo must exist)
-    repoUri = 'https://github.com/neuhalje/concordion-executable-documentation-extension.git'
+    repoUri = 'https://github.com/concordion/concordion-api-documentation-extension.git'
     // branch will be created if it doesn't exist
     branch = 'gh-pages'
 
