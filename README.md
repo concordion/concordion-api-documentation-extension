@@ -15,10 +15,7 @@ Tired of writing documentation for your library? This [Concordion](http://concor
 
 ## HOWTO
 
-To enable extensions, set systemProperty
-    `-Dconcordion.extensions=name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension` or use
-    the annotation
-    `@Extensions(ExecutableSpecExtension.class)`.
+To enable extensions use the annotation `@Extensions(ExecutableSpecExtension.class)`.
   
 ### Maven
 ```xml
@@ -45,7 +42,7 @@ Browse the tests for examples. Here are the appetizers!
 ### Scripts do not need to return values
 
     ```groovy
-    import name.neuhalfen.concordion.extension.executablespec.ExecutableSpecExtension
+    import ExecutableSpecExtension
     
     System.out.println("Namespace: " + ExecutableSpecExtension.NAMESPACE);
     System.out.println("OUT 1");
