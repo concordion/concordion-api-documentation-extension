@@ -22,14 +22,14 @@ To enable extensions use the annotation `@Extensions(ExecutableSpecExtension.cla
  <dependency>
   <groupId>org.concordion</groupId>
   <artifactId>concordion-api-documentation-extension</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
   <type>pom</type>
 </dependency>
 ```
 
 ### Gradle
 ```
-compile 'org.concordion:concordion-api-documentation-extension:0.0.3'
+compile 'org.concordion:concordion-api-documentation-extension:0.0.4'
 ```
 
 ## Examples

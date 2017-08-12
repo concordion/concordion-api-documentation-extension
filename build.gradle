@@ -12,7 +12,7 @@ apply plugin: "jacoco"
 
 description = 'Executable API documentation in concordion'
 group = 'org.concordion'
-version = '0.0.3'
+version = '0.0.4'
 
 // bintray deployment
 // configured in gradle.properties
