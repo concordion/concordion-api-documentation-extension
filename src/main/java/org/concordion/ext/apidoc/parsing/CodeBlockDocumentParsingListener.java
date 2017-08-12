@@ -2,6 +2,7 @@ package org.concordion.ext.apidoc.parsing;
 
 import nu.xom.*;
 import org.concordion.api.listener.DocumentParsingListener;
+import org.concordion.ext.apidoc.ExecutableSpecExtension;
 
 public class CodeBlockDocumentParsingListener implements DocumentParsingListener {
 
@@ -76,11 +77,11 @@ public class CodeBlockDocumentParsingListener implements DocumentParsingListener
 
         final MarkdownCodeBlockParser.Block.Config config = codeBlock.parseConfig();
         if (!config.language.isEmpty()) {
-            code.addAttribute(new Attribute("script:lang", "http://neuhalfen.name/concordion/extensions/run", config.language));
+            code.addAttribute(new Attribute("script:lang", ExecutableSpecExtension.NAMESPACE, config.language));
         }
 
         for (String key : config.values.keySet()) {
-            code.addAttribute(new Attribute("script:" + key, "http://neuhalfen.name/concordion/extensions/run", config.values.get(key)));
+            code.addAttribute(new Attribute("script:" + key, ExecutableSpecExtension.NAMESPACE, config.values.get(key)));
         }
 
         pre.appendChild(code);

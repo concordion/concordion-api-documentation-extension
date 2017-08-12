@@ -8,7 +8,7 @@ import org.junit.runner.RunWith
 
 @RunWith(ConcordionRunner.class)
 @Extensions(ExecutableSpecExtension)
-@ConcordionOptions(declareNamespaces = ["script", "http://neuhalfen.name/concordion/extensions/run"])
+@ConcordionOptions(declareNamespaces = ["script", "urn:concordion-extensions:2010"])
 class ExecutableSpecReturnsValuesMarkdown {
 
 }
