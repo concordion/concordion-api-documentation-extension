@@ -74,6 +74,7 @@ bintray {
     pkg {
         repo = 'maven'
         name = 'concordion-api-documentation-extension'
+        userOrg = 'concordion'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/concordion/concordion-api-documentation-extension.git'
         websiteUrl = 'https://github.com/concordion/concordion-api-documentation-extension'
