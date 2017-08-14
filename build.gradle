@@ -5,7 +5,7 @@ plugins {
     id 'maven'
     id 'maven-publish'
     id 'signing'
-    id "com.jfrog.bintray" version "1.7"
+    id "com.jfrog.bintray" version "1.7.3"
 }
 apply plugin: "groovy"
 apply plugin: "jacoco"
