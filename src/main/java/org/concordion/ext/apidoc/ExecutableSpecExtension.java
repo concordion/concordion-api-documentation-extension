@@ -17,9 +17,13 @@ public final class ExecutableSpecExtension implements ConcordionExtension {
     public void addTo(ConcordionExtender extender) {
         extender.withCommand(NAMESPACE, ATTRIBUTE_LANGUAGE, new RunGroovyCommand())
                 .withDocumentParsingListener(new CodeBlockDocumentParsingListener())
-                .withLinkedCSS("/highlightjs.org/styles/solarized-dark.css", new Resource("/highlightjs.org/solarized-dark.css"))
+                .withLinkedCSS(String.format("/highlightjs.org/styles/%s.css", getColorScheme()), new Resource("/highlightjs.org/solarized-dark.css"))
                 .withLinkedJavaScript("/highlightjs.org/highlight.pack.js", new Resource("/highlightjs.org/highlight.pack.js"))
                 .withLinkedJavaScript("/highlightjs.org/initHighlighting.js", new Resource("/highlightjs.org/initHighlighting.js"));
+    }
+
+    String getColorScheme() {
+        return "solarized-dark";
     }
 
 }
