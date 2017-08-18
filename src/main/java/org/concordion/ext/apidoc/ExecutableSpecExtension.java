@@ -15,7 +15,7 @@ public final class ExecutableSpecExtension implements ConcordionExtension {
 
     @Override
     public void addTo(ConcordionExtender extender) {
-        extender.withCommand(NAMESPACE, ATTRIBUTE_LANGUAGE, new RunGroovyCommand())
+        extender.withCommand(NAMESPACE, ATTRIBUTE_LANGUAGE, new RunScriptCommand())
                 .withDocumentParsingListener(new CodeBlockDocumentParsingListener())
                 .withLinkedCSS(String.format("/highlightjs.org/styles/%s.css", getColorScheme()), new Resource("/highlightjs.org/solarized-dark.css"))
                 .withLinkedJavaScript("/highlightjs.org/highlight.pack.js", new Resource("/highlightjs.org/highlight.pack.js"))

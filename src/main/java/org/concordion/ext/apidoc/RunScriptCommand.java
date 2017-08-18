@@ -7,7 +7,7 @@ import org.concordion.internal.ImplementationStatusChecker;
 import java.util.Arrays;
 import java.util.List;
 
-final class RunGroovyCommand extends AbstractCommand {
+final class RunScriptCommand extends AbstractCommand {
 
     public List<CommandCall> getExamples(CommandCall command) {
         return Arrays.asList(command);
