@@ -1,7 +1,7 @@
 package org.concordion.ext.apidoc;
 
-import org.concordion.ext.apidoc.execution.ScriptResult;
 import org.concordion.api.*;
+import org.concordion.ext.apidoc.execution.ScriptResult;
 import org.concordion.internal.ImplementationStatusChecker;
 
 import java.util.Arrays;
@@ -26,8 +26,8 @@ final class RunGroovyCommand extends AbstractCommand {
 
         final ScriptResult scriptResult;
         if (isRunScript) {
-                 scriptResult = language.scriptRunner().run(script,evaluator);
-        }else{
+            scriptResult = language.scriptRunner().run(script, evaluator);
+        } else {
             scriptResult = ScriptResult.forDisabledRunning();
         }
         node.getElement().addAttribute("id", exampleName);
@@ -60,13 +60,20 @@ final class RunGroovyCommand extends AbstractCommand {
         ImplementationStatusChecker checker = ImplementationStatusChecker.implementationStatusCheckerFor(implementationStatus);
 
         final String note = checker.printNoteToString();
-        final Element outputElement = node.getElement();
+        Element outputElement = node.getElement();
+
 
         if (note != null) {
-            Element fixtureNode = new Element("p");
+            Element fixtureNode = new Element("div");
             fixtureNode.appendText(note);
 
-            outputElement.appendChild(fixtureNode);
+            // place the information text next to the block of source code
+            final boolean isCodeNestedInPre = "code".equalsIgnoreCase(outputElement.getLocalName()) && "pre".equalsIgnoreCase(outputElement.getParentElement().getLocalName());
+            if (isCodeNestedInPre) {
+                outputElement.getParentElement().appendSister(fixtureNode);
+            } else {
+                outputElement.appendSister(fixtureNode);
+            }
         }
 
         if (scriptResult.getOutput().length() > 0) {
@@ -81,7 +88,6 @@ final class RunGroovyCommand extends AbstractCommand {
             outputElement.appendSister(stdOut);
         }
     }
-
 
 
     private String getExampleName(CommandCall node) {
