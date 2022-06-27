@@ -14,7 +14,7 @@ final class RunScriptCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute(CommandCall node, Evaluator evaluator, ResultRecorder resultRecorder) {
+    public void execute(CommandCall node, Evaluator evaluator, ResultRecorder resultRecorder, Fixture fixture) {
         String exampleName = getExampleName(node);
         SCRIPTING_LANGUAGE language = SCRIPTING_LANGUAGE.fromString(node.getExpression());
 

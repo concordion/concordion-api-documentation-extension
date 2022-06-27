@@ -12,7 +12,7 @@ apply plugin: "jacoco"
 
 description = 'Executable API documentation in concordion'
 group = 'org.concordion'
-version = '0.0.4'
+version = '0.0.5'
 
 // bintray deployment
 // configured in gradle.properties
@@ -22,15 +22,15 @@ if (hasProperty('bintray_Username')) {
 }
 
 wrapper {
-    gradleVersion = "4.1"
+    gradleVersion = "6.5"
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 project.ext {
-    concordionVersion = "2.1.0"
+    concordionVersion = "3.1.2"
     groovyVersion = "2.4.12"
     junitVersion = "4.11"
 }
